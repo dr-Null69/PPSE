@@ -33,10 +33,20 @@ class CalculatorApp:
         self.calculate_button.grid(row=1, column=0, padx=10, pady=5, columnspan=2, sticky="we")
 
     def calculate(self):
-        """
-        дописати логіку обчислення виразу з поля введення
-        і відображення результату або помилки.
-        """
+         expression = self.entry_input.get()
+        if not expression:
+            return
+
+        try:
+            result = str(eval(expression, {"builtins": None}, {}))
+            self.entry_input.delete(0, tk.END)
+            self.entry_input.insert(0, result)
+
+        except Exception as e:
+            error_message = "Помилка!"
+            self.entry_input.delete(0, tk.END)
+            self.entry_input.insert(0, error_message)
+            self.show_error(e)
     def show_error(self, e):
         messagebox.showerror("Помилка", f"Неправильний вираз:\n{e}")
 
