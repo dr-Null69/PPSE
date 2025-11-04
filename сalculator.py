@@ -14,7 +14,7 @@ class CalculatorApp:
             master, 
             width=30, 
             font=('Arial', 16), 
-            justify='right',
+            justify='left',
             relief=tk.SUNKEN,
             bd=3
         )
@@ -33,7 +33,7 @@ class CalculatorApp:
         self.calculate_button.grid(row=1, column=0, padx=10, pady=5, columnspan=2, sticky="we")
 
     def calculate(self):
-         expression = self.entry_input.get()
+        expression = self.entry_input.get()
         if not expression:
             return
 
@@ -43,7 +43,7 @@ class CalculatorApp:
             self.entry_input.insert(0, result)
 
         except Exception as e:
-            error_message = "Помилка!"
+            error_message = ""
             self.entry_input.delete(0, tk.END)
             self.entry_input.insert(0, error_message)
             self.show_error(e)
