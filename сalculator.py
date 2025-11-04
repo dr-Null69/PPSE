@@ -27,7 +27,7 @@ class CalculatorApp:
             text="Обчислити", 
             command=self.calculate,
             font=('Arial', 14, 'bold'),
-            bg="#3a3a3",       
+            bg="#d1d1d1",       
             activebackground="#45a049"
         )
         self.calculate_button.grid(row=1, column=0, padx=10, pady=5, columnspan=2, sticky="we")
@@ -38,9 +38,7 @@ class CalculatorApp:
         і відображення результату або помилки.
         """
     def show_error(self, e):
-        """
-        дописати логіку відображення повідомлення про помилку
-        """
+        messagebox.showerror("Помилка", f"Неправильний вираз:\n{e}")
 
 if __name__ == "__main__":
     root = tk.Tk()
